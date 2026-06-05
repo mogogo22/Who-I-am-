@@ -1265,6 +1265,21 @@ body.low-data body::before{display:none!important;}
   </div>
   
   <script>
+    // منع كليك يمين
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// منع F12 وباقي اختصارات DevTools
+document.addEventListener('keydown', e => {
+  if(
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && ['I','J','C','U'].includes(e.key.toUpperCase())) ||
+    (e.ctrlKey && e.key.toUpperCase() === 'U')
+  ){
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+});
   // ══════════════════════════════════════════════
   //  MOBILE PERFORMANCE DETECTION
   // ══════════════════════════════════════════════
