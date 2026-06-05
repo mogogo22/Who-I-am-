@@ -527,16 +527,20 @@ button { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
     .info-col{border-left:none;width:48%;max-height:380px;}
   }
   @media(max-height:500px) and (orientation:landscape){
-  .char-col{height:160px;}
-  .info-col{max-height:calc(100vh - 120px);overflow-y:auto;}
-  .wrap{padding-top:4px;padding-bottom:8px;}
-  .score-row{padding:2px 8px;}
-  .door-panel{padding:6px 10px;}
-  .vis-scene{min-height:0;}
-  .v-claim{font-size:11px;}
-  .q-btn{padding:7px 8px;min-height:38px;}
-  .dec-btn{padding:8px 3px;min-height:38px;}
-  .ans-strip{max-height:80px;}
+  .wrap{padding-top:2px;padding-bottom:4px;}
+  .score-row{padding:2px 6px;font-size:7px;}
+  .door-panel{padding:5px 10px;}
+  .vis-scene{flex-direction:row;min-height:0;margin:2px 0;}
+  .char-col{width:35%;height:calc(100vh - 80px);max-height:none;}
+  .info-col{width:65%;max-height:calc(100vh - 80px);overflow-y:auto;padding:6px 8px;}
+  .v-claim{font-size:10px;line-height:1.4;}
+  .q-btn{padding:6px 8px;min-height:34px;font-size:11px;}
+  .dec-btn{padding:7px 3px;min-height:34px;font-size:13px;}
+  .ans-strip{min-height:60px;}
+  .ctrl-panel{margin-bottom:3px;}
+  .ctrl-btn{padding:6px 4px;min-height:34px;font-size:11px;}
+  #moralityHud{display:none !important;}
+  .topbar{font-size:8px;padding:3px 6px !important;}
 }
   
   /* ══════════════════════════════════════
