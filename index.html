@@ -3678,6 +3678,7 @@ if(GS.thermalOn){playHintSound();document.body.classList.add('thermal-mode');;if
   stopAllGameEffects();
   stopCricketsSound();
   stopRadioSound();
+  unlockNextDay(GS.currentDay);
 
   const ov=document.getElementById('resultOv');
   const box=document.getElementById('resultBox');
