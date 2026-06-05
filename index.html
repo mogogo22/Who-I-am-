@@ -526,22 +526,6 @@ button { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
     .char-col{width:52%;height:340px;}
     .info-col{border-left:none;width:48%;max-height:380px;}
   }
-  @media(max-height:500px) and (orientation:landscape){
-  .wrap{padding-top:2px;padding-bottom:4px;}
-  .score-row{padding:2px 6px;font-size:7px;}
-  .door-panel{padding:5px 10px;}
-  .vis-scene{flex-direction:row;min-height:0;margin:2px 0;}
-  .char-col{width:35%;height:calc(100vh - 80px);max-height:none;}
-  .info-col{width:65%;max-height:calc(100vh - 80px);overflow-y:auto;padding:6px 8px;}
-  .v-claim{font-size:10px;line-height:1.4;}
-  .q-btn{padding:6px 8px;min-height:34px;font-size:11px;}
-  .dec-btn{padding:7px 3px;min-height:34px;font-size:13px;}
-  .ans-strip{min-height:60px;}
-  .ctrl-panel{margin-bottom:3px;}
-  .ctrl-btn{padding:6px 4px;min-height:34px;font-size:11px;}
-  #moralityHud{display:none !important;}
-  .topbar{font-size:8px;padding:3px 6px !important;}
-}
   
   /* ══════════════════════════════════════
      INFO COL ELEMENTS
@@ -895,20 +879,42 @@ body.low-data body::before{display:none!important;}
     width:55% !important;
   }
 }
-@keyframes phoneRotate {
-  0%,100%{transform:rotate(0deg);}
-  40%{transform:rotate(90deg) scale(1.1);}
-  60%{transform:rotate(90deg) scale(1.1);}
+@media(orientation:landscape) and (max-width:900px){
+  .s-main{
+    width: 50%;
+  }
+  .back-btn{
+    width: 10%;
+    font-size: 8px;
+  }
+  .s-title{
+    font-size: 25px;
+  }
+  .s-sub{
+    font-size: 5px;
+  }
+
+  .logo-section{margin:3px 0 3px;}
+  .logo-title{font-size:24px !important;}
+  .logo-sub{font-size:4px;}
+  .ticker-wrap{padding:3px 3px;margin:3px 0;width: 50%; align-items: center; text-align: center;}
+  .t-text{font-size:6px;}
+  .menu-box{margin:3px auto;padding:3px 3px;}
+  .mi{padding:6px 4px !important;font-size:9px !important;min-height:20px !important;}
+  .mdiv{margin:2px 0;}
+  .wrap{padding-top:2px !important;padding-bottom:4px !important;width: 80%;}
+  .topbar{font-size:5px !important;padding:3px 3px !important;}
+  .score-row{padding:2px 4px !important;font-size:5px !important;}
+  .q-btn{min-height:22px !important;padding:5px 6px !important;font-size:8px !important;}
+  .dec-btn{min-height:22px !important;padding:4px 3px !important;font-size:8px !important;}
+  .vis-scene{flex-direction:row !important;min-height:0 !important;}
+  .char-col{width:30% !important;height:calc(100vh - 60px) !important;}
+  .info-col{width:30% !important;max-height:calc(100vh - 60px) !important;overflow-y:auto !important;}
+  #moralityHud{display:none !important;}
 }
   </style>
   </head>
   <body>
-    <div id="rotateOv" style="display:none;position:fixed;inset:0;z-index:9999;background:#000;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;">
-  <div id="phoneAnim" style="font-size:64px;animation:phoneRotate 2s ease-in-out infinite;">📱</div>
-  <div style="font-family:'VT323',monospace;font-size:28px;color:#00ff41;letter-spacing:3px;margin:16px 0 8px;">اقلب التلفون</div>
-  <div style="font-family:'Cairo',sans-serif;font-size:14px;color:rgba(0,255,65,0.6);line-height:1.8;">اللعبة شغّالة على Landscape بس</div>
-  <div style="font-family:'Cairo',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);margin-top:14px;line-height:1.7;">لو قلبت التلفون واللعبة مشتغلتش<br>يبقا قلبه يدوي من الإعدادات</div>
-</div>
   <div id="bg1"></div><div id="bg2"></div><div id="bgVig"></div>
   <div id="introBg" style="display:none;position:fixed;inset:0;z-index:4;background-image:url('img/T.png');background-size:cover;background-position:center;opacity:0.92;pointer-events:none;"></div>
   <div id="dreamLayer"></div>
@@ -1069,10 +1075,12 @@ body.low-data body::before{display:none!important;}
         <div class="logo-title">? Who I'am</div>
         <div class="logo-sub">VER - DEMO</div>
       </div>
+      <center>
       <div class="ticker-wrap">
         <div class="t-label">⚠ عاجل ⚠</div>
         <span class="t-text">الجيش يعلن إغلاق المنطقة 51 ... مخلوقات غريبة في الأحياء السكنية ... متفتحش الباب لأي حد الليلة ...</span>
       </div>
+      </center>
       <div class="menu-box pb">
         <button class="mi sel" onclick="go('s-dayselect')"><span class="mar">▶</span>ابداء اللعب<span class="mc">[1]</span></button>
         <div class="mdiv"></div>
@@ -1087,7 +1095,7 @@ body.low-data body::before{display:none!important;}
       <button class="back-btn" onclick="go('s-main')">← رجوع</button>
       <div class="s-hdr"><div class="s-title">اختار اليوم</div><div class="s-sub">// SELECT DAY //</div></div>
       <div style="width:92%;margin:0 auto;">
-        <div style="font-size:clamp(11px,3vw,12px);color:rgba(180,190,170,0.5);direction:rtl;text-align:center;margin-bottom:10px;line-height:1.7;">
+        <div style="font-size:clamp(11px,3vw,12px);color:rgba(180,190,170,0.5);direction:rtl;text-align:center;margin-bottom:6px;line-height:1.7;">
           اللعبة بتتقدم عبر أيام. كل يوم أصعب من اللي قبله.<br>
           <span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gdim);">// قراراتك بتأثر على المدينة كلها //</span>
         </div>
@@ -3943,17 +3951,6 @@ function resetAchievementTrackers(){
   //  INIT
   // ══════════════════════════════════════════════
   loadSettings();loadUnlocks();buildCityBg();
-  (function(){
-  const ov=document.getElementById('rotateOv');
-  function checkOri(){
-    if(!isMobile){ov.style.display='none';return;}
-    const isPort=window.innerHeight>window.innerWidth;
-    ov.style.display=isPort?'flex':'none';
-  }
-  checkOri();
-  window.addEventListener('resize',checkOri,{passive:true});
-  window.addEventListener('orientationchange',()=>setTimeout(checkOri,300),{passive:true});
-})();
   loadAchievements();
   GS.currentDay=1;updateMoralityUI();
   
